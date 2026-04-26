@@ -392,6 +392,9 @@ section { padding: 80px 0; }
 .typing-dot:nth-child(3) { animation-delay: .3s; }
 @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
 
+/* ── EXPERT GRID ── */
+.expert-grid { display: grid; grid-template-columns: 400px 1fr; gap: 64px; align-items: center; }
+
 /* ── PAGE HEADER (inner pages) ── */
 .page-hero {
   background: linear-gradient(135deg, var(--ic-900) 0%, var(--ic-800) 100%);
@@ -419,11 +422,28 @@ section { padding: 80px 0; }
   .reviews-grid { grid-template-columns: 1fr; }
   .zone-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .expert-grid { grid-template-columns: 1fr; gap: 40px; }
+  .expert-grid > div:first-child { max-width: 480px; margin: 0 auto; width: 100%; }
 }
 @media (max-width: 640px) {
   section { padding: 56px 0; }
   .sit-grid { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
-  .chatbot-window { width: calc(100vw - 32px); right: 16px; bottom: 90px; }
+  .expert-grid > div:first-child { max-width: 100%; }
+
+  /* Chatbot */
+  .chatbot-launcher { bottom: 16px; right: 16px; width: 52px; height: 52px; font-size: 22px; }
+  .chatbot-window {
+    width: calc(100vw - 24px);
+    right: 12px;
+    left: 12px;
+    bottom: 76px;
+    max-height: min(520px, calc(100svh - 96px));
+    max-height: min(520px, calc(100vh - 96px));
+    border-radius: 16px;
+  }
+  .chat-input { font-size: 16px; }
+  .chat-messages { padding: 14px; gap: 10px; }
+  .chat-choices { padding: 0 14px 10px; }
 }
