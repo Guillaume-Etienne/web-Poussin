@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostics Immobiliers Lyon – DPE, Amiante, Plomb, Gaz | ImmoConform</title>
+  <meta name="description" content="Tous les diagnostics immobiliers obligatoires à Lyon : DPE, amiante, plomb, gaz, électricité, termites, audit énergétique. Certifié COFRAC. Devis gratuit.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .diag-nav {
+      background: var(--grey-100); border-bottom: 1px solid var(--grey-200);
+      padding: 0; position: sticky; top: 73px; z-index: 90;
+    }
+    .diag-nav-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0 24px;
+      display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+    }
+    .diag-nav-inner::-webkit-scrollbar { display: none; }
+    .diag-tab {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 14px 20px; font-family: var(--font-head); font-size: 13.5px; font-weight: 600;
+      color: var(--grey-700); text-decoration: none; border-bottom: 3px solid transparent;
+      white-space: nowrap; transition: all .18s; flex-shrink: 0;
+    }
+    .diag-tab:hover { color: var(--ic-700); border-color: var(--ic-300); }
+    .diag-tab.active { color: var(--ic-700); border-color: var(--ic-700); }
+
+    .diag-section {
+      padding: 80px 0; border-bottom: 1px solid var(--grey-200); scroll-margin-top: 140px;
+    }
+    .diag-grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: start; }
+    .diag-grid.reverse { direction: rtl; }
+    .diag-grid.reverse > * { direction: ltr; }
+
+    .diag-icon-big {
+      width: 72px; height: 72px; border-radius: 18px; background: var(--ic-50);
+      display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;
+    }
+    .validity-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--ic-50); color: var(--ic-700); border: 1.5px solid var(--ic-100);
+      border-radius: 100px; padding: 6px 14px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+    }
+    .obligation-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      border-radius: 100px; padding: 5px 12px; font-size: 12px; font-weight: 700; margin-right: 8px; margin-bottom: 12px;
+    }
+    .ob-red { background: oklch(96% 0.04 15); color: oklch(38% 0.15 15); }
+    .ob-blue { background: var(--ic-50); color: var(--ic-700); }
+    .ob-orange { background: oklch(97% 0.05 55); color: oklch(42% 0.14 55); }
+
+    .diag-card {
+      background: var(--grey-100); border-radius: var(--radius-lg); padding: 28px;
+      position: sticky; top: 140px;
+    }
+    .diag-card h4 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--ic-900); margin-bottom: 16px; }
+    .diag-detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--grey-200); font-size: 14px; }
+    .diag-detail-row:last-of-type { border-bottom: none; }
+    .diag-detail-label { color: var(--grey-700); }
+    .diag-detail-val { font-family: var(--font-head); font-weight: 700; color: var(--ic-900); }
+
+    .checklist { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+    .check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--grey-700); }
+    .check-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    .dpe-scale { display: flex; flex-direction: column; gap: 4px; margin: 16px 0; }
+    .dpe-row { display: flex; align-items: center; gap: 10px; }
+    .dpe-letter { width: 32px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 13px; color: white; flex-shrink: 0; }
+    .dpe-bar { flex: 1; height: 8px; border-radius: 4px; }
+    .dpe-info { font-size: 12px; color: var(--grey-400); flex-shrink: 0; }
+
+    @media(max-width: 900px) {
+      .diag-grid, .diag-grid.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .diag-card { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-topbar">
+    <span>📍 Lyon &amp; Métropole</span>
+    <a href="tel:+33XXXXXXXXX">☎ 06 XX XX XX XX</a>
+    <span class="urgence-badge">⚡ Urgence 24/48h</span>
+  </div>
+  <div class="header-main">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo-slogan.jpeg" alt="ImmoConform">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="diagnostics.html" class="active">Diagnostics</a>
+      <a href="experience.html">Votre expert</a>
+      <a href="index.html#zone">Zone</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <button onclick="openChatbot()" class="btn btn-outline btn-sm">💬 Devis rapide</button>
+      <a href="tel:+33XXXXXXXXX" class="btn btn-primary btn-sm">Appeler</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span>›</span>
+      <span style="color:rgba(255,255,255,.7)">Nos diagnostics</span>
+    </div>
+    <h1>Tous vos diagnostics<br>en une seule visite</h1>
+    <p>DPE, amiante, plomb, gaz, électricité, termites, audit énergétique. Certifié COFRAC. Résultats sous 24h.</p>
+  </div>
+</div>
+
+<!-- ══ NAV DIAGNOSTICS ══ -->
+<div class="diag-nav">
+  <div class="diag-nav-inner">
+    <a href="#dpe" class="diag-tab active">📊 DPE</a>
+    <a href="#amiante" class="diag-tab">🔬 Amiante</a>
+    <a href="#plomb" class="diag-tab">🧱 Plomb</a>
+    <a href="#gaz" class="diag-tab">🔥 Gaz</a>
+    <a href="#electricite" class="diag-tab">⚡ Électricité</a>
+    <a href="#termites" class="diag-tab">🐛 Termites</a>
+    <a href="#carrez" class="diag-tab">📐 Carrez/Boutin</a>
+    <a href="#audit" class="diag-tab">🌿 Audit énergie</a>
+  </div>
+</div>
+
+<!-- ══ DPE ══ -->
+<section class="diag-section" id="dpe">
+  <div class="container">
+    <div class="diag-grid">
+      <div>
+        <div class="diag-icon-big">📊</div>
+        <div>
+          <span class="obligation-badge ob-red">Obligatoire vente</span>
+          <span class="obligation-badge ob-red">Obligatoire location</span>
+        </div>
+        <div class="validity-badge">🕐 Validité : 10 ans</div>
+        <h2 style="margin-bottom:16px">Diagnostic de Performance<br>Énergétique (DPE)</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Le DPE évalue la consommation d'énergie et l'empreinte carbone d'un logement. Il est obligatoire pour toute vente ou mise en location. Depuis la réforme de juillet 2021, il est <strong>opposable juridiquement</strong> — un acheteur peut se retourner contre un vendeur en cas de DPE erroné.</p>
+        <p style="font-size:15px;line-height:1.8;color:var(--grey-700);margin-bottom:24px">Notre logiciel est certifié DPE v2 et notre méthode de calcul 3CL garantit un résultat fiable et conforme à la réglementation en vigueur.</p>
+        <div class="checklist">
+          <div class="check-item">Classement de A (très performant) à G (passoire énergétique)</div>
+          <div class="check-item">Estimation des consommations annuelles en kWh et en euros</div>
+          <div class="check-item">Émissions de gaz à effet de serre (étiquette GES)</div>
+          <div class="check-item">Recommandations de travaux pour améliorer la performance</div>
+          <div class="check-item">Rapport transmis le jour même au format numérique</div>
+        </div>
+
+        <!-- Échelle DPE -->
+        <div style="background:var(--grey-100);border-radius:var(--radius);padding:20px;margin-top:24px">
+          <div style="font-family:var(--font-head);font-weight:700;font-size:13px;color:var(--grey-700);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px">Échelle de performance</div>
+          <div class="dpe-scale">
+            <div class="dpe-row"><div class="dpe-letter" style="background:#00A651">A</div><div class="dpe-bar" style="background:#00A651;width:20%"></div><div class="dpe-info">≤ 70 kWh/m²/an</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#51B848">B</div><div class="dpe-bar" style="background:#51B848;width:30%"></div><div class="dpe-info">71–110</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#AACF2E">C</div><div class="dpe-bar" style="background:#AACF2E;width:40%"></div><div class="dpe-info">111–180</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#FFEC00">D</div><div class="dpe-bar" style="background:#FFEC00;width:55%"></div><div class="dpe-info">181–250</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#F5A200">E</div><div class="dpe-bar" style="background:#F5A200;width:70%"></div><div class="dpe-info">251–330</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#EE6624">F</div><div class="dpe-bar" style="background:#EE6624;width:85%"></div><div class="dpe-info">331–420 ⚠</div></div>
+            <div class="dpe-row"><div class="dpe-letter" style="background:#E2001A">G</div><div class="dpe-bar" style="background:#E2001A;width:100%"></div><div class="dpe-info">&gt; 420 ⛔</div></div>
+          </div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:10px">⚠ Logements F et G : audit énergétique obligatoire à la vente depuis 2023. Interdiction de location progressive.</p>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif DPE</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Studio / T1 (&lt; 30m²)</span><span class="diag-detail-val">90 – 110 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (30–80m²)</span><span class="diag-detail-val">110 – 150 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Grand appart (&gt; 80m²)</span><span class="diag-detail-val">150 – 180 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison (&lt; 150m²)</span><span class="diag-detail-val">150 – 200 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Grande maison (&gt; 150m²)</span><span class="diag-detail-val">200 – 280 €</span></div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:12px">Tarifs indicatifs. Devis gratuit et ferme avant intervention.</p>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AMIANTE ══ -->
+<section class="diag-section" id="amiante" style="background:var(--grey-100)">
+  <div class="container">
+    <div class="diag-grid reverse">
+      <div>
+        <div class="diag-icon-big">🔬</div>
+        <span class="obligation-badge ob-red">Obligatoire si construction avant juillet 1997</span>
+        <div class="validity-badge">🕐 Validité : illimitée (si absence) · 3 ans (si présence)</div>
+        <h2 style="margin-bottom:16px">Diagnostic Amiante</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">L'amiante est une fibre minérale cancérigène largement utilisée dans les matériaux de construction jusqu'en 1997. Le repérage est obligatoire pour tout bien construit avant juillet 1997, que ce soit à la vente, en vue de travaux ou pour les parties communes en copropriété.</p>
+        <div class="checklist">
+          <div class="check-item">Repérage visuel de tous les matériaux susceptibles de contenir de l'amiante</div>
+          <div class="check-item">Rapport détaillé avec photos et localisation précise</div>
+          <div class="check-item">Préconisations en cas de présence (surveillance, travaux, retrait)</div>
+          <div class="check-item">Habilitation SS4 pour le repérage avant travaux</div>
+          <div class="check-item">Valable pour les parties privatives ET communes (sur demande)</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Amiante</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (&lt; 50m²)</span><span class="diag-detail-val">90 – 120 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (50–100m²)</span><span class="diag-detail-val">120 – 160 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison</span><span class="diag-detail-val">160 – 240 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Avant travaux (SS4)</span><span class="diag-detail-val">Sur devis</span></div>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PLOMB ══ -->
+<section class="diag-section" id="plomb">
+  <div class="container">
+    <div class="diag-grid">
+      <div>
+        <div class="diag-icon-big">🧱</div>
+        <span class="obligation-badge ob-red">Obligatoire si construction avant 1949</span>
+        <div class="validity-badge">🕐 Vente : 1 an · Location : 6 ans</div>
+        <h2 style="margin-bottom:16px">Diagnostic Plomb (CREP)</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Le Constat de Risque d'Exposition au Plomb (CREP) est obligatoire pour les logements construits avant le 1er janvier 1949. Le plomb était massivement utilisé dans les peintures jusqu'à cette date. Son ingestion est particulièrement dangereuse pour les enfants et les femmes enceintes.</p>
+        <div class="checklist">
+          <div class="check-item">Détection par fluorescence X sans destruction des revêtements</div>
+          <div class="check-item">Localisation et quantification des zones à risque</div>
+          <div class="check-item">Recommandations de travaux si concentration supérieure au seuil légal</div>
+          <div class="check-item">Document opposable et transmissible à l'acheteur ou locataire</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Plomb (CREP)</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (&lt; 50m²)</span><span class="diag-detail-val">80 – 110 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (50–100m²)</span><span class="diag-detail-val">110 – 150 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison</span><span class="diag-detail-val">150 – 220 €</span></div>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GAZ ══ -->
+<section class="diag-section" id="gaz" style="background:var(--grey-100)">
+  <div class="container">
+    <div class="diag-grid reverse">
+      <div>
+        <div class="diag-icon-big">🔥</div>
+        <span class="obligation-badge ob-red">Obligatoire si installation &gt; 15 ans</span>
+        <div class="validity-badge">🕐 Vente : 3 ans · Location : 6 ans</div>
+        <h2 style="margin-bottom:16px">Diagnostic Gaz</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">L'état de l'installation intérieure de gaz est obligatoire pour toute installation de plus de 15 ans, que ce soit à la vente ou à la location. Il vise à prévenir les risques d'explosion, d'incendie et d'intoxication au monoxyde de carbone.</p>
+        <div class="checklist">
+          <div class="check-item">Vérification de l'état des tuyauteries, robinetteries et joints</div>
+          <div class="check-item">Contrôle de la ventilation des pièces contenant les appareils à gaz</div>
+          <div class="check-item">Vérification de la combustion et des conduits d'évacuation</div>
+          <div class="check-item">Détection des anomalies avec cotation de dangerosité</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Gaz</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement</span><span class="diag-detail-val">80 – 120 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison</span><span class="diag-detail-val">100 – 160 €</span></div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:12px">Tarif réduit si réalisé avec d'autres diagnostics (pack).</p>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ELECTRICITE ══ -->
+<section class="diag-section" id="electricite">
+  <div class="container">
+    <div class="diag-grid">
+      <div>
+        <div class="diag-icon-big">⚡</div>
+        <span class="obligation-badge ob-red">Obligatoire si installation &gt; 15 ans</span>
+        <div class="validity-badge">🕐 Vente : 3 ans · Location : 6 ans</div>
+        <h2 style="margin-bottom:16px">Diagnostic Électricité</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">L'état de l'installation intérieure d'électricité est obligatoire pour les installations de plus de 15 ans. Il identifie les défauts pouvant présenter des risques d'électrocution ou d'incendie pour les occupants.</p>
+        <div class="checklist">
+          <div class="check-item">Contrôle du tableau électrique et des protections différentielles</div>
+          <div class="check-item">Vérification de la mise à la terre et des liaisons équipotentielles</div>
+          <div class="check-item">Contrôle des conducteurs et de leur état</div>
+          <div class="check-item">Inspection des prises de courant, notamment en salles de bains</div>
+          <div class="check-item">Rapport avec points de contrôle et anomalies cotées</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Électricité</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement</span><span class="diag-detail-val">80 – 130 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison</span><span class="diag-detail-val">110 – 180 €</span></div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:12px">Tarif réduit si réalisé avec d'autres diagnostics (pack).</p>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TERMITES ══ -->
+<section class="diag-section" id="termites" style="background:var(--grey-100)">
+  <div class="container">
+    <div class="diag-grid reverse">
+      <div>
+        <div class="diag-icon-big">🐛</div>
+        <span class="obligation-badge ob-orange">Selon arrêté préfectoral</span>
+        <div class="validity-badge">🕐 Validité : 6 mois</div>
+        <h2 style="margin-bottom:16px">État parasitaire — Termites</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Le diagnostic termites est obligatoire uniquement dans les zones délimitées par arrêté préfectoral. À Lyon, certaines communes de la Métropole sont concernées — il convient de vérifier pour chaque bien. Les termites peuvent causer des dommages structurels importants sans signe apparent.</p>
+        <div class="checklist">
+          <div class="check-item">Inspection visuelle de toutes les parties accessibles en bois</div>
+          <div class="check-item">Détection des indices d'infestation (galeries, sciure, déjections)</div>
+          <div class="check-item">Rapport valable 6 mois à compter de la visite</div>
+          <div class="check-item">Vérification de l'arrêté préfectoral pour votre commune</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Termites</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement</span><span class="diag-detail-val">80 – 110 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison</span><span class="diag-detail-val">100 – 160 €</span></div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:12px">Nous vérifions si votre commune est en zone concernée avant de proposer ce diagnostic.</p>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CARREZ / BOUTIN ══ -->
+<section class="diag-section" id="carrez">
+  <div class="container">
+    <div class="diag-grid">
+      <div>
+        <div class="diag-icon-big">📐</div>
+        <span class="obligation-badge ob-red">Obligatoire copropriété vente</span>
+        <span class="obligation-badge ob-blue">Boutin recommandé location</span>
+        <div class="validity-badge">🕐 Validité : illimitée (hors travaux)</div>
+        <h2 style="margin-bottom:16px">Loi Carrez &amp; Loi Boutin</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Le mesurage loi Carrez est obligatoire pour la vente de tout bien en copropriété. La loi Boutin s'applique à la location (surface habitable). Une erreur de plus de 5% sur la surface peut entraîner une réduction du prix ou du loyer.</p>
+        <div class="checklist">
+          <div class="check-item">Mesurage précis avec laser certifié</div>
+          <div class="check-item">Déduction des surfaces réglementaires (&lt; 1,80m de hauteur)</div>
+          <div class="check-item">Plan côté fourni avec le rapport si demandé</div>
+          <div class="check-item">Rapport conforme pour annexe du compromis de vente</div>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Carrez / Boutin</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (&lt; 50m²)</span><span class="diag-detail-val">60 – 80 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Appartement (50–100m²)</span><span class="diag-detail-val">80 – 110 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison / Grand bien</span><span class="diag-detail-val">110 – 160 €</span></div>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AUDIT ENERGETIQUE ══ -->
+<section class="diag-section" id="audit" style="background:var(--grey-100)">
+  <div class="container">
+    <div class="diag-grid reverse">
+      <div>
+        <div class="diag-icon-big">🌿</div>
+        <span class="obligation-badge ob-red">Obligatoire vente logements F et G</span>
+        <div class="validity-badge">🕐 Validité : 5 ans</div>
+        <h2 style="margin-bottom:16px">Audit Énergétique</h2>
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">L'audit énergétique est obligatoire depuis le 1er avril 2023 pour la vente de maisons individuelles et d'immeubles monopropriété classés F ou G. Plus complet que le DPE, il propose des scénarios de rénovation chiffrés et hiérarchisés.</p>
+        <div class="checklist">
+          <div class="check-item">Analyse complète de l'enveloppe thermique (murs, fenêtres, toiture)</div>
+          <div class="check-item">État des systèmes de chauffage, ventilation et eau chaude sanitaire</div>
+          <div class="check-item">Propositions de bouquets de travaux avec estimations de gains</div>
+          <div class="check-item">Simulation des aides financières mobilisables (MaPrimeRénov', CEE)</div>
+          <div class="check-item">Rapport détaillé conforme à la réglementation RE2020</div>
+        </div>
+        <div style="background:white;border-radius:var(--radius);padding:16px 20px;margin-top:20px;border-left:4px solid var(--ic-700)">
+          <strong style="font-size:14px;color:var(--ic-900)">Bon à savoir :</strong>
+          <p style="font-size:14px;color:var(--grey-700);margin-top:6px">L'audit est plus long à réaliser qu'un DPE (1,5h à 3h sur site). Il peut être combiné avec d'autres diagnostics lors d'une même visite pour réduire les coûts globaux.</p>
+        </div>
+      </div>
+      <div>
+        <div class="diag-card">
+          <h4>Tarif estimatif Audit énergétique</h4>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison (&lt; 100m²)</span><span class="diag-detail-val">350 – 450 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Maison (100–200m²)</span><span class="diag-detail-val">450 – 600 €</span></div>
+          <div class="diag-detail-row"><span class="diag-detail-label">Grande maison / Immeuble</span><span class="diag-detail-val">Sur devis</span></div>
+          <p style="font-size:12px;color:var(--grey-400);margin-top:12px">L'audit remplace le DPE dans le dossier de vente pour les logements F/G.</p>
+          <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Devis gratuit →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RECAP PACKS ══ -->
+<section style="padding:80px 0">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Packs complets</span>
+      <h2>Tous vos diagnostics en une visite,<br>un tarif tout compris</h2>
+      <p>Pas de déplacement multiple, pas de surprise — un seul rendez-vous pour constituer un dossier complet et conforme.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px">
+      <div style="background:var(--grey-100);border-radius:var(--radius-lg);padding:32px;border:2px solid transparent;transition:all .2s" onmouseover="this.style.borderColor='var(--ic-300)'" onmouseout="this.style.borderColor='transparent'">
+        <div style="font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ic-700);margin-bottom:12px">Pack Location</div>
+        <div style="font-family:var(--font-head);font-size:36px;font-weight:800;color:var(--ic-900);margin-bottom:4px">120€<span style="font-size:16px;font-weight:500;color:var(--grey-400)"> et +</span></div>
+        <div style="font-size:13px;color:var(--grey-400);margin-bottom:20px">Selon surface et ancienneté</div>
+        <div class="checklist">
+          <div class="check-item">DPE</div>
+          <div class="check-item">CREP (Plomb) si avant 1949</div>
+          <div class="check-item">Gaz &amp; Électricité si +15 ans</div>
+          <div class="check-item">ERP (état des risques)</div>
+          <div class="check-item">Loi Boutin (surface habitable)</div>
+        </div>
+        <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:24px">Devis gratuit →</button>
+      </div>
+
+      <div style="background:var(--ic-900);border-radius:var(--radius-lg);padding:32px;position:relative;box-shadow:var(--shadow-lg)">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--amber);color:var(--ic-900);font-family:var(--font-head);font-weight:700;font-size:12px;padding:5px 16px;border-radius:100px;white-space:nowrap">⭐ Le plus choisi</div>
+        <div style="font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ic-300);margin-bottom:12px">Pack Vente</div>
+        <div style="font-family:var(--font-head);font-size:36px;font-weight:800;color:white;margin-bottom:4px">180€<span style="font-size:16px;font-weight:500;color:rgba(255,255,255,.5)"> et +</span></div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px">Selon surface et ancienneté</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> DPE</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> Amiante (si avant 1997)</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> Plomb CREP (si avant 1949)</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> Gaz &amp; Électricité (+15 ans)</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> ERP + Termites si zone</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.8)"><span style="color:#4AE8A0;font-size:16px">✓</span> Loi Carrez</div>
+        </div>
+        <button onclick="openChatbot()" class="btn btn-white" style="width:100%;justify-content:center;margin-top:24px">Devis gratuit →</button>
+      </div>
+
+      <div style="background:var(--grey-100);border-radius:var(--radius-lg);padding:32px;border:2px solid transparent;transition:all .2s" onmouseover="this.style.borderColor='var(--ic-300)'" onmouseout="this.style.borderColor='transparent'">
+        <div style="font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ic-700);margin-bottom:12px">Pack Énergie / Réno</div>
+        <div style="font-family:var(--font-head);font-size:36px;font-weight:800;color:var(--ic-900);margin-bottom:4px">350€<span style="font-size:16px;font-weight:500;color:var(--grey-400)"> et +</span></div>
+        <div style="font-size:13px;color:var(--grey-400);margin-bottom:20px">Logements F/G à la vente</div>
+        <div class="checklist">
+          <div class="check-item">Audit énergétique complet</div>
+          <div class="check-item">Scénarios de rénovation chiffrés</div>
+          <div class="check-item">Estimation des aides (MaPrimeRénov')</div>
+          <div class="check-item">Amiante avant travaux (option)</div>
+          <div class="check-item">DPE intégré à l'audit</div>
+        </div>
+        <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:24px">Devis gratuit →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Un doute sur les diagnostics obligatoires ?</h2>
+    <p>Dites-nous simplement votre situation et nous vous guidons vers le bon pack.</p>
+    <div class="cta-btns">
+      <button onclick="openChatbot()" class="btn btn-white btn-lg">💬 Parler à l'assistant</button>
+      <a href="tel:+33XXXXXXXXX" class="btn btn-ghost btn-lg">☎ 06 XX XX XX XX</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-slogan.jpeg" alt="ImmoConform">
+        <p class="footer-tagline">Benoit Caillot — Diagnostiqueur immobilier certifié. Lyon &amp; Métropole.</p>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.45);line-height:1.9">
+          📍 Lyon, Rhône (69)<br>
+          📞 <a href="tel:+33XXXXXXXXX" style="color:inherit">06 XX XX XX XX</a><br>
+          ✉ contact@immoconform.fr
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Diagnostics</h4>
+        <div class="footer-links">
+          <a href="#dpe">DPE Lyon</a>
+          <a href="#amiante">Amiante</a>
+          <a href="#plomb">Plomb (CREP)</a>
+          <a href="#gaz">Gaz</a>
+          <a href="#electricite">Électricité</a>
+          <a href="#audit">Audit énergétique</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="diagnostics.html">Nos diagnostics</a>
+          <a href="experience.html">Votre expert</a>
+          <a href="index.html#zone">Zone d'intervention</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-links">
+          <a href="tel:+33XXXXXXXXX">06 XX XX XX XX</a>
+          <a href="mailto:contact@immoconform.fr">contact@immoconform.fr</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ImmoConform – Benoit Caillot</span>
+      <span style="display:flex;gap:20px">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="chatbot.js"></script>
+<script>
+// Highlight active diag tab on scroll
+const tabs = document.querySelectorAll('.diag-tab');
+const sections = [...document.querySelectorAll('.diag-section')];
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 180) current = s.id;
+  });
+  tabs.forEach(t => {
+    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+  });
+}, {passive: true});
+</script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImmoConform – Diagnostic Immobilier Lyon | DPE, Amiante, Plomb, Gaz</title>
+  <meta name="description" content="ImmoConform, diagnostiqueur immobilier certifié à Lyon. Benoit Caillot réalise vos DPE, amiante, plomb, gaz, électricité. Devis gratuit, résultats sous 24/48h.">
+  <link rel="canonical" href="https://immoconform.fr/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"ImmoConform","description":"Diagnostics immobiliers certifiés à Lyon — DPE, amiante, plomb, gaz, électricité, termites.","url":"https://immoconform.fr","telephone":"+33XXXXXXXXX","address":{"@type":"PostalAddress","addressLocality":"Lyon","postalCode":"6900X","addressCountry":"FR"},"areaServed":["Lyon","Villeurbanne","Vénissieux","Écully","Tassin","Caluire-et-Cuire","Bron","Saint-Priest"],"priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"203"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-topbar">
+    <span>📍 Lyon &amp; Métropole</span>
+    <a href="tel:+33XXXXXXXXX">☎ 06 XX XX XX XX</a>
+    <span class="urgence-badge">⚡ Urgence 24/48h</span>
+  </div>
+  <div class="header-main">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo-slogan.jpeg" alt="ImmoConform – Diagnostics Immobilier Lyon">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="diagnostics.html">Diagnostics</a>
+      <a href="experience.html">Votre expert</a>
+      <a href="#zone">Zone</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <button onclick="openChatbot()" class="btn btn-outline btn-sm">💬 Devis rapide</button>
+      <a href="tel:+33XXXXXXXXX" class="btn btn-primary btn-sm">Appeler</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero" style="padding-bottom:0">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>Diagnostiqueur certifié · Lyon &amp; Métropole</div>
+      <h1>Diagnostic immobilier<br>à Lyon — <em>vendre, louer<br>ou rénover</em> en confiance</h1>
+      <p class="hero-sub">Benoit Caillot, expert certifié, réalise l'intégralité de vos diagnostics en une seule visite. Dossier complet remis sous 24/48h, tarif transparent, zéro surprise.</p>
+      <div class="hero-actions">
+        <button onclick="openChatbot()" class="btn btn-white btn-lg">💬 Devis en 2 minutes</button>
+        <a href="tel:+33XXXXXXXXX" class="btn btn-ghost btn-lg">☎ Être rappelé</a>
+      </div>
+      <div class="hero-trust">
+        <div class="htrust-item"><span class="check">✓</span> 4,9/5 · 203 avis Google</div>
+        <div class="htrust-item"><span class="check">✓</span> Certifié COFRAC</div>
+        <div class="htrust-item"><span class="check">✓</span> 10 ans d'expérience</div>
+        <div class="htrust-item"><span class="check">✓</span> Dossier remis sous 24h</div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="photo-placeholder" style="aspect-ratio:3/5">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="20" r="14" stroke="currentColor" stroke-width="2"/><path d="M4 52c0-13.3 10.7-24 24-24s24 10.7 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <div class="photo-label">
+          <strong style="font-size:13px;color:rgba(255,255,255,.8)">Photo de Benoit Caillot</strong><br>
+          Portrait professionnel<br>à déposer ici
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES NAV ══ -->
+<div style="background:#fff;border-bottom:1px solid var(--grey-200);position:sticky;top:73px;z-index:90;overflow-x:auto">
+  <div style="max-width:1180px;margin:0 auto;display:flex;min-width:max-content">
+    <a href="#situations" class="svc-pill active">🏷️ Vente</a>
+    <a href="#situations" class="svc-pill">🔑 Location</a>
+    <a href="#situations" class="svc-pill">⚡ Audit énergie</a>
+    <a href="#situations" class="svc-pill">🏢 Copropriété</a>
+    <a href="#situations" class="svc-pill">🔧 Travaux</a>
+    <a href="#zone" class="svc-pill" style="margin-left:auto;border-left:1px solid var(--grey-200)">📍 Ma zone</a>
+  </div>
+</div>
+<style>
+.svc-pill{display:inline-flex;align-items:center;gap:6px;padding:14px 22px;font-family:var(--font-head);font-size:13.5px;font-weight:600;color:var(--grey-700);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:all .18s}
+.svc-pill:hover,.svc-pill.active{color:var(--ic-700);border-color:var(--ic-700)}
+</style>
+
+<!-- ══ SITUATION QUESTIONNAIRE ══ -->
+<section style="background:var(--grey-100)" id="situations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Votre projet</span>
+      <h2>Quelle est votre situation ?</h2>
+      <p>Choisissez votre cas de figure — nous vous indiquons les diagnostics obligatoires et le tarif indicatif.</p>
+    </div>
+    <div class="sit-grid">
+
+      <!-- VENTE -->
+      <div class="sit-card" onclick="selectSit(this,'Vente')">
+        <div class="sit-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3L25 10V25H17V18H11V25H3V10L14 3Z" stroke="var(--ic-700)" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Je vends mon bien</h3>
+        <p>Constituez votre DDT complet pour rassurer les acquéreurs et sécuriser la transaction notariale.</p>
+        <div class="sit-tags">
+          <span class="tag">DPE</span><span class="tag">Amiante</span><span class="tag">Plomb</span><span class="tag">Gaz · Élec</span><span class="tag">Termites</span><span class="tag">Carrez</span>
+        </div>
+        <div style="background:var(--ic-50);border-radius:8px;padding:12px 14px;margin-top:4px">
+          <div style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--ic-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Pack vente estimatif</div>
+          <div style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--ic-900)">À partir de 180€</div>
+          <div style="font-size:12px;color:var(--grey-400);margin-top:2px">Selon surface et type de bien</div>
+        </div>
+        <a class="sit-cta" onclick="openChatbot()">Obtenir mon devis →</a>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="sit-card" onclick="selectSit(this,'Location')">
+        <div class="sit-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="5" width="20" height="18" rx="3" stroke="var(--ic-700)" stroke-width="1.8"/><path d="M9 13h10M9 17h6" stroke="var(--ic-700)" stroke-width="1.8" stroke-linecap="round"/><path d="M9 9h10" stroke="var(--ic-700)" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Je mets en location</h3>
+        <p>Fournissez les diagnostics obligatoires à annexer au bail, selon la date de construction et la commune.</p>
+        <div class="sit-tags">
+          <span class="tag">DPE</span><span class="tag">Plomb</span><span class="tag">Gaz · Élec</span><span class="tag">ERP</span><span class="tag">Boutin</span>
+        </div>
+        <div style="background:var(--ic-50);border-radius:8px;padding:12px 14px;margin-top:4px">
+          <div style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--ic-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Pack location estimatif</div>
+          <div style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--ic-900)">À partir de 120€</div>
+          <div style="font-size:12px;color:var(--grey-400);margin-top:2px">Selon surface et type de bien</div>
+        </div>
+        <a class="sit-cta" onclick="openChatbot()">Obtenir mon devis →</a>
+      </div>
+
+      <!-- RÉNOVATION -->
+      <div class="sit-card" onclick="selectSit(this,'Rénovation')">
+        <div class="sit-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M15 4L9 14h6l-3 10L25 12h-6l3-8h-7z" stroke="var(--ic-700)" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Je rénove ou j'anticipe</h3>
+        <p>Audit énergétique obligatoire pour les passoires thermiques (F/G) à la vente. Amiante avant travaux.</p>
+        <div class="sit-tags">
+          <span class="tag">Audit énergie</span><span class="tag">DPE rénovation</span><span class="tag">Amiante avant travaux</span>
+        </div>
+        <div style="background:var(--ic-50);border-radius:8px;padding:12px 14px;margin-top:4px">
+          <div style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--ic-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Audit énergétique</div>
+          <div style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--ic-900)">À partir de 350€</div>
+          <div style="font-size:12px;color:var(--grey-400);margin-top:2px">Obligatoire F/G depuis 2023</div>
+        </div>
+        <a class="sit-cta" onclick="openChatbot()">Obtenir mon devis →</a>
+      </div>
+
+    </div>
+
+    <!-- Recommandation dynamique -->
+    <div id="recommandation" style="display:none;margin-top:28px;background:white;border-radius:var(--radius);border:2px solid var(--ic-300);padding:24px 28px;display:flex;align-items:center;gap:20px">
+      <div style="font-size:36px">💡</div>
+      <div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--ic-900)" id="recomm-title">Pour votre projet de vente</div>
+        <div style="font-size:14px;color:var(--grey-700);margin-top:4px" id="recomm-text">Nous vous recommandons un pack DDT complet : DPE + amiante + plomb + gaz + électricité + ERP.</div>
+        <button onclick="openChatbot()" class="btn btn-primary btn-sm" style="margin-top:14px">Demander ce pack →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">1<sup>200</sup><sup>+</sup></div>
+        <div class="stat-label">Diagnostics réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4,9<sup>★</sup></div>
+        <div class="stat-label">Note Google · 203 avis</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24<sup>h</sup></div>
+        <div class="stat-label">Délai remise dossier</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<sup>ans</sup></div>
+        <div class="stat-label">D'expérience terrain</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ QUI SUIS-JE (mini CV) ══ -->
+<section>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:400px 1fr;gap:64px;align-items:center">
+      <div>
+        <!-- Photo placeholder -->
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative">
+          <div class="photo-placeholder" style="aspect-ratio:4/5;background:linear-gradient(160deg,var(--ic-100) 0%,var(--ic-50) 100%);color:var(--ic-300)">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="20" r="14" stroke="currentColor" stroke-width="2"/><path d="M4 52c0-13.3 10.7-24 24-24s24 10.7 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="photo-label" style="color:var(--ic-500)">
+              <strong>Photo de Benoit Caillot</strong><br>
+              Portrait ou photo terrain
+            </div>
+          </div>
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;background:var(--ic-900);border-radius:10px;padding:14px 16px">
+            <div style="font-family:var(--font-head);font-weight:800;font-size:17px;color:white">Benoit Caillot</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.65);margin-top:3px">Diagnostiqueur immobilier certifié · Lyon</div>
+            <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:11px;padding:3px 9px;border-radius:100px;font-family:var(--font-head);font-weight:600">COFRAC</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:11px;padding:3px 9px;border-radius:100px;font-family:var(--font-head);font-weight:600">RC Pro assurée</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:11px;padding:3px 9px;border-radius:100px;font-family:var(--font-head);font-weight:600">10 ans exp.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">Votre expert</span>
+        <h2>Un diagnostiqueur<br>terrain, pas un commercial</h2>
+        <p style="font-size:16px;margin-top:12px;margin-bottom:28px">Benoit Caillot intervient lui-même sur chaque mission. Pas de sous-traitance, pas de turn-over — vous avez un interlocuteur unique, joignable directement sur son mobile.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--ic-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px">⚡</div>
+            <div>
+              <div style="font-family:var(--font-head);font-weight:700;color:var(--ic-900)">Réactivité</div>
+              <div style="font-size:14px;color:var(--grey-700)">Prise de rendez-vous le jour même. Rapport transmis dans les 24h suivant la visite.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--ic-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px">🎓</div>
+            <div>
+              <div style="font-family:var(--font-head);font-weight:700;color:var(--ic-900)">Expertise certifiée</div>
+              <div style="font-size:14px;color:var(--grey-700)">Certifications à jour pour tous les diagnostics. Formation continue pour rester au niveau des dernières réglementations.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--ic-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px">🤝</div>
+            <div>
+              <div style="font-family:var(--font-head);font-weight:700;color:var(--ic-900)">Sérieux &amp; transparence</div>
+              <div style="font-size:14px;color:var(--grey-700)">Devis clair avant intervention. Aucun diagnostic inutile proposé. Explication des résultats à la fin de la visite.</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="experience.html" class="btn btn-primary">Voir mon parcours →</a>
+          <a href="tel:+33XXXXXXXXX" class="btn btn-outline">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AVIS GOOGLE ══ -->
+<section style="background:var(--grey-100)">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Avis clients</span>
+      <h2>Ce que disent nos clients</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px">
+        <span style="font-size:28px;color:#FFC107;letter-spacing:2px">★★★★★</span>
+        <div>
+          <span style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--ic-900)">4,9/5</span>
+          <span style="font-size:14px;color:var(--grey-400);margin-left:6px">· 203 avis Google vérifiés</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Benoit est intervenu le lendemain de mon appel. Rapport reçu le soir même, parfait pour signer le compromis rapidement. Je recommande sans hésiter ! »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MD</div>
+          <div><div class="reviewer-name">Marie-Dominique R.</div><div class="reviewer-meta">Vente appartement · Lyon 6e</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Sérieux, ponctuel, pédagogue. Il m'a expliqué chaque diagnostic à la fin de la visite. Le prix annoncé = le prix facturé. Rien à redire. »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">TM</div>
+          <div><div class="reviewer-name">Thomas M.</div><div class="reviewer-meta">Location maison · Villeurbanne</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Urgence 48h pour une vente à signer. Benoit s'est rendu disponible immédiatement. Très professionnel, dossier complet et conforme. Merci ! »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SP</div>
+          <div><div class="reviewer-name">Sophie P.</div><div class="reviewer-meta">Urgence · Caluire-et-Cuire</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Excellent rapport qualité-prix. Le DPE est bien argumenté et les recommandations de travaux très claires. Je ferai appel à lui pour ma prochaine vente. »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">LB</div>
+          <div><div class="reviewer-name">Laurent B.</div><div class="reviewer-meta">DPE · Lyon 3e</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Rapide, efficace, à l'écoute. Il a détecté un problème électrique que le précédent diagnostiqueur avait raté. Résultat : sécurité assurée pour les locataires. »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">AC</div>
+          <div><div class="reviewer-name">Amélie C.</div><div class="reviewer-meta">Diagnostic électricité · Écully</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">« Super expérience. Benoit est venu à l'heure, a répondu à toutes mes questions et m'a transmis un dossier impeccable. Je recommande à tous mes clients. »</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">JC</div>
+          <div><div class="reviewer-name">Julien C. — Agent immo</div><div class="reviewer-meta">Partenaire · Lyon</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="https://g.co/immoconform" target="_blank" rel="noopener" class="btn btn-outline">Voir tous les avis Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ZONE D'INTERVENTION ══ -->
+<section id="zone">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Zone d'intervention</span>
+      <h2>Lyon et toute la Métropole</h2>
+      <p>Intervention rapide sur l'ensemble des communes de la Métropole de Lyon. Déplacement inclus dans le tarif.</p>
+    </div>
+    <div class="zone-grid">
+      <div class="map-placeholder">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="22" stroke="currentColor" stroke-width="1.5"/><path d="M26 10v18l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="26" r="4" fill="currentColor"/></svg>
+        <span>CARTE MÉTROPOLE DE LYON</span>
+        <span style="opacity:.6">Intégrer Google Maps ici</span>
+      </div>
+      <div>
+        <div class="commune-list">
+          <div class="commune-row"><span class="commune-name">Lyon (1er – 9e)</span><span class="commune-delay">Zone principale · J+0</span></div>
+          <div class="commune-row"><span class="commune-name">Villeurbanne</span><span class="commune-delay">J+1</span></div>
+          <div class="commune-row"><span class="commune-name">Vénissieux</span><span class="commune-delay">J+1</span></div>
+          <div class="commune-row"><span class="commune-name">Caluire-et-Cuire</span><span class="commune-delay">J+1</span></div>
+          <div class="commune-row"><span class="commune-name">Tassin-la-Demi-Lune</span><span class="commune-delay">J+1</span></div>
+          <div class="commune-row"><span class="commune-name">Écully</span><span class="commune-delay">J+2</span></div>
+          <div class="commune-row"><span class="commune-name">Bron · Saint-Priest</span><span class="commune-delay">J+2</span></div>
+          <div class="commune-row"><span class="commune-name">Toute la Métropole</span><span class="commune-delay">Sur demande</span></div>
+        </div>
+        <button onclick="openChatbot()" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Vérifier ma disponibilité →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section style="background:var(--grey-100)" id="faq">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Questions fréquentes</span>
+      <h2>Tout ce que vous devez savoir</h2>
+    </div>
+    <div class="faq-list" style="max-width:860px;margin:0 auto">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quels diagnostics sont obligatoires pour vendre à Lyon ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Pour une vente, le DDT doit contenir au minimum : DPE, diagnostic amiante (construction avant 1997), diagnostic plomb (avant 1949), état des installations gaz et électricité (si plus de 15 ans), état des risques et pollutions (ERP), et les termites selon arrêté préfectoral. Pour les logements classés F ou G, l'audit énergétique est également obligatoire depuis avril 2023.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien coûte un pack diagnostics complet ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Le tarif dépend de la surface, du type de bien et des diagnostics nécessaires. Un pack vente complet pour un appartement de 60 m² post-1997 est généralement facturé entre 180€ et 250€. Demandez un devis gratuit en 2 minutes via notre assistant ou par téléphone — le tarif est toujours confirmé avant l'intervention, sans surprise.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien de temps dure l'intervention ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Pour un appartement standard, comptez 1h à 2h sur place. Pour une maison avec combles, cave et dépendances, prévoyez 2h à 3h. L'avantage d'ImmoConform : tous les diagnostics sont réalisés en une seule visite, évitant de mobiliser plusieurs rendez-vous avec différents prestataires.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Intervenez-vous en urgence ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Oui. Pour les situations urgentes (compromis à signer, bien mis en vente rapidement), nous proposons une intervention sous 24 à 48h. Appelez directement au 06 XX XX XX XX pour vérifier la disponibilité immédiate.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quelle est la durée de validité des diagnostics ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Elle varie selon le diagnostic : DPE 10 ans, amiante 3 ans si présence détectée, plomb 1 an (vente) ou 6 ans (location), gaz et électricité 3 ans (vente) / 6 ans (location), ERP 6 mois, termites 6 mois. Nous vérifions systématiquement si vos diagnostics existants sont encore valables avant de proposer des nouvelles mesures.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Le DPE est-il opposable depuis la réforme 2021 ? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Oui, depuis juillet 2021, le DPE est opposable juridiquement : un acheteur peut se retourner contre le vendeur si le DPE est erroné. Notre logiciel certifié DPE v2 et notre méthode 3CL garantissent un résultat fiable. Choisir un diagnostiqueur certifié est donc essentiel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA STRIP ══ -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Prêt à lancer votre projet ?</h2>
+    <p>Devis gratuit · Intervention sous 24/48h · Dossier complet dans la journée</p>
+    <div class="cta-btns">
+      <button onclick="openChatbot()" class="btn btn-white btn-lg">💬 Devis en 2 minutes</button>
+      <a href="tel:+33XXXXXXXXX" class="btn btn-ghost btn-lg">☎ 06 XX XX XX XX</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-slogan.jpeg" alt="ImmoConform">
+        <p class="footer-tagline">Benoit Caillot — Diagnostiqueur immobilier certifié. Lyon &amp; Métropole. Réactivité, expertise, sérieux.</p>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.45);line-height:1.9">
+          📍 Lyon, Rhône (69)<br>
+          📞 <a href="tel:+33XXXXXXXXX" style="color:inherit">06 XX XX XX XX</a><br>
+          ✉ contact@immoconform.fr
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Diagnostics</h4>
+        <div class="footer-links">
+          <a href="diagnostics.html#dpe">DPE Lyon</a>
+          <a href="diagnostics.html#amiante">Amiante</a>
+          <a href="diagnostics.html#plomb">Plomb (CREP)</a>
+          <a href="diagnostics.html#gaz">Gaz</a>
+          <a href="diagnostics.html#electricite">Électricité</a>
+          <a href="diagnostics.html#audit">Audit énergétique</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Projets</h4>
+        <div class="footer-links">
+          <a href="#situations">Vente immobilière</a>
+          <a href="#situations">Mise en location</a>
+          <a href="#situations">Copropriété</a>
+          <a href="#situations">Travaux / rénovation</a>
+          <a href="tel:+33XXXXXXXXX">Urgence 24/48h</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Communes</h4>
+        <div class="footer-links">
+          <a href="#">Diagnostic Lyon</a>
+          <a href="#">Diagnostic Villeurbanne</a>
+          <a href="#">Diagnostic Vénissieux</a>
+          <a href="#">Diagnostic Caluire</a>
+          <a href="#">Diagnostic Écully</a>
+          <a href="#">Toute la Métropole</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ImmoConform – Benoit Caillot · Tous droits réservés</span>
+      <span style="display:flex;gap:20px">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="chatbot.js"></script>
+<script>
+function selectSit(card, type) {
+  document.querySelectorAll('.sit-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  const rec = document.getElementById('recommandation');
+  const recomms = {
+    'Vente': {title:'Pour votre projet de vente', text:'Nous vous recommandons un pack DDT complet : DPE + amiante + plomb + gaz + électricité + ERP. Selon la superficie, comptez environ 180 à 280€.'},
+    'Location': {title:'Pour votre mise en location', text:'Pour un bail, les essentiels sont : DPE + CREP (plomb) + état des risques (ERP) + gaz et électricité si installations de plus de 15 ans.'},
+    'Rénovation': {title:'Pour votre projet de rénovation', text:'Un audit énergétique est obligatoire pour les logements F/G à la vente. Pour des travaux, le diagnostic amiante avant démolition est indispensable.'},
+  };
+  if (recomms[type]) {
+    document.getElementById('recomm-title').textContent = recomms[type].title;
+    document.getElementById('recomm-text').textContent = recomms[type].text;
+    rec.style.display = 'flex';
+  }
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
