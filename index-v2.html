@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImmoConform – Diagnostic Immobilier Lyon | Benoit Caillot</title>
+  <meta name="description" content="ImmoConform, diagnostiqueur immobilier certifié à Lyon. Benoit Caillot – DPE, amiante, plomb, gaz, électricité. Devis gratuit, résultats sous 24h.">
+  <link rel="canonical" href="https://immoconform.fr/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"ImmoConform","description":"Diagnostics immobiliers certifiés à Lyon.","url":"https://immoconform.fr","telephone":"+33XXXXXXXXX","address":{"@type":"PostalAddress","addressLocality":"Lyon","addressCountry":"FR"},"areaServed":["Lyon","Villeurbanne","Vénissieux","Caluire","Écully","Tassin","Bron"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"203"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F7F3EC;
+      --cream-d: #EDE7DA;
+      --forest:  #1A2E22;
+      --forest-2:#243B2D;
+      --forest-3:#2F4D3A;
+      --gold:    #C8973A;
+      --gold-l:  #E8C97E;
+      --rust:    #9B4120;
+      --ink:     #1C1C1E;
+      --mist:    #6B7B6E;
+      --white:   #FFFFF8;
+      --r: 0px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      mix-blend-mode: normal;
+      transition: background .3s, padding .3s;
+    }
+    .hdr.scrolled {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(26,46,34,.1);
+      padding: 14px 48px;
+    }
+    .hdr-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 900; letter-spacing: -.02em;
+      color: var(--forest); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hdr-logo-mark {
+      width: 34px; height: 34px; background: var(--forest);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    }
+    .hdr-logo-mark svg { width: 18px; height: 18px; }
+    .hdr-logo span { color: var(--gold); }
+
+    .hdr-nav { display: flex; align-items: center; gap: 0; }
+    .hdr-nav a {
+      font-size: 13.5px; font-weight: 500; color: var(--mist);
+      text-decoration: none; padding: 7px 16px;
+      border-radius: 100px; transition: color .18s, background .18s;
+    }
+    .hdr-nav a:hover { color: var(--forest); background: rgba(26,46,34,.06); }
+
+    .hdr-cta {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pill-btn {
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13.5px;
+      padding: 9px 20px; border-radius: 100px; text-decoration: none;
+      cursor: pointer; border: none; transition: all .2s;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .pill-btn-ghost { background: transparent; color: var(--forest); border: 1.5px solid rgba(26,46,34,.25); }
+    .pill-btn-ghost:hover { border-color: var(--forest); background: rgba(26,46,34,.04); }
+    .pill-btn-solid { background: var(--forest); color: var(--cream); border: 1.5px solid var(--forest); }
+    .pill-btn-solid:hover { background: var(--forest-2); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,46,34,.2); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute; bottom: -60px; left: -10px;
+      font-family: 'Playfair Display', serif; font-size: clamp(120px, 18vw, 240px);
+      font-weight: 900; color: rgba(26,46,34,.04); line-height: 1;
+      user-select: none; pointer-events: none; white-space: nowrap;
+      letter-spacing: -.04em;
+    }
+
+    .hero-main {
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 0; align-items: end; padding: 48px 48px 0;
+      position: relative; z-index: 1;
+    }
+    .hero-left { padding-bottom: 64px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--mist); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 24px; height: 1.5px; background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 900; line-height: 1.04;
+      letter-spacing: -.03em; color: var(--forest);
+      margin-bottom: 28px;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-desc {
+      font-size: 16px; line-height: 1.75; color: var(--mist);
+      max-width: 480px; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+    .hero-trust {
+      display: flex; gap: 28px; flex-wrap: wrap;
+      padding-top: 32px; border-top: 1px solid rgba(26,46,34,.1);
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; color: var(--mist);
+    }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* Hero right — photo + rating card */
+    .hero-right { align-self: end; position: relative; }
+    .hero-photo {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--forest-3);
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-photo-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, var(--forest-3) 0%, var(--forest) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; color: rgba(255,255,255,.35); font-size: 12px;
+      font-family: 'DM Sans', monospace; letter-spacing: .06em; text-align: center;
+    }
+    .hero-photo-inner svg { opacity: .4; }
+
+    /* Floating card on photo */
+    .rating-card {
+      position: absolute; bottom: 28px; left: -40px;
+      background: var(--white); border-radius: 16px;
+      padding: 18px 22px; box-shadow: 0 8px 40px rgba(26,46,34,.18);
+      min-width: 190px;
+    }
+    .rating-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 6px; }
+    .rating-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--forest); line-height: 1; }
+    .rating-label { font-size: 12px; color: var(--mist); margin-top: 4px; }
+
+    /* ── MARQUEE STRIP ── */
+    .marquee-strip {
+      background: var(--forest);
+      padding: 16px 0; overflow: hidden; position: relative;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 0 40px; font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,.6); white-space: nowrap;
+    }
+    .marquee-item strong { color: rgba(255,255,255,.9); }
+    .marquee-sep { color: var(--gold); font-size: 16px; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 100px 48px; }
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -.025em; color: var(--forest);
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+    h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--forest); }
+
+    /* ── SITUATIONS ── */
+    .situations { background: var(--white); }
+    .sit-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center; margin-bottom: 64px;
+    }
+    .sit-intro p { font-size: 16px; line-height: 1.8; color: var(--mist); margin-top: 16px; max-width: 420px; }
+
+    /* Big number feature */
+    .big-num-feature {
+      text-align: right;
+    }
+    .big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(80px, 12vw, 140px);
+      font-weight: 900; color: var(--forest);
+      line-height: .9; letter-spacing: -.04em;
+    }
+    .big-num span { color: var(--gold); }
+    .big-num-label { font-size: 15px; color: var(--mist); margin-top: 10px; }
+
+    .sit-cards {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      background: rgba(26,46,34,.08); border-radius: 20px; overflow: hidden;
+    }
+    .sit-card {
+      background: var(--white); padding: 36px 30px;
+      transition: all .22s; cursor: pointer; position: relative;
+    }
+    .sit-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold); transform: scaleX(0); transition: transform .3s;
+    }
+    .sit-card:hover { background: var(--cream); }
+    .sit-card:hover::after { transform: scaleX(1); }
+    .sit-card.active { background: var(--forest); }
+    .sit-card.active::after { transform: scaleX(1); background: var(--gold); }
+    .sit-card.active h3 { color: var(--cream); }
+    .sit-card.active p { color: rgba(247,243,236,.6); }
+    .sit-card.active .sit-num { color: rgba(200,151,58,.3); }
+    .sit-card.active .sit-tags-wrap .tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.6); }
+    .sit-card.active .sit-cta-link { color: var(--gold); }
+
+    .sit-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px; font-weight: 900; color: rgba(26,46,34,.08);
+      line-height: 1; margin-bottom: 16px; letter-spacing: -.03em;
+    }
+    .sit-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .sit-card p { font-size: 14px; line-height: 1.7; color: var(--mist); margin-bottom: 20px; }
+    .sit-tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .tag {
+      font-size: 11.5px; font-weight: 500; padding: 4px 10px;
+      border-radius: 100px; background: var(--cream-d); color: var(--forest);
+    }
+    .sit-cta-link {
+      font-size: 13px; font-weight: 600; color: var(--forest);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+      letter-spacing: .02em;
+    }
+    .sit-cta-link:hover { color: var(--gold); }
+
+    /* Recommandation -->
+    .recomm-box {
+      margin-top: 24px; padding: 24px 28px;
+      background: var(--forest); border-radius: 14px;
+      display: none; animation: fadeUp .3s ease;
+    }
+    .recomm-box.show { display: flex; align-items: center; gap: 20px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .recomm-icon { font-size: 30px; flex-shrink: 0; }
+    .recomm-text { color: rgba(247,243,236,.75); font-size: 14px; line-height: 1.65; }
+    .recomm-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--cream); font-weight: 700; margin-bottom: 4px; }
+
+    /* ── QUI SUIS-JE ── */
+    .about { background: var(--forest); color: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 400px;
+      gap: 80px; align-items: center;
+    }
+    .about h2 { color: var(--cream); }
+    .about h2 em { color: var(--gold-l); }
+    .about-lead { font-size: 18px; line-height: 1.8; color: rgba(247,243,236,.75); margin: 24px 0 36px; }
+    .about-metrics {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 36px;
+    }
+    .metric {
+      border: 1px solid rgba(247,243,236,.12); border-radius: 14px; padding: 22px 20px;
+      background: rgba(255,255,255,.04);
+    }
+    .metric-num {
+      font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700;
+      color: var(--cream); line-height: 1;
+    }
+    .metric-num sub { font-size: 20px; font-weight: 400; color: var(--gold-l); }
+    .metric-label { font-size: 13px; color: rgba(247,243,236,.5); margin-top: 6px; }
+
+    .certifs-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .certif-chip {
+      background: rgba(200,151,58,.15); color: var(--gold-l);
+      font-size: 12px; font-weight: 600; padding: 6px 14px;
+      border-radius: 100px; border: 1px solid rgba(200,151,58,.25);
+    }
+
+    .about-photo {
+      border-radius: 20px; overflow: hidden;
+      background: var(--forest-2); aspect-ratio: 4/5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: rgba(247,243,236,.3); font-size: 12px; text-align: center;
+      position: relative;
+    }
+    .about-photo::before {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to top, var(--forest), transparent);
+    }
+    .about-quote {
+      position: absolute; bottom: 28px; left: 24px; right: 24px;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 16px; color: var(--cream); line-height: 1.6; z-index: 1;
+    }
+    .about-quote::before { content: '\201C'; color: var(--gold-l); font-size: 36px; line-height: 0; vertical-align: -.3em; margin-right: 4px; }
+
+    /* ── AVIS ── */
+    .avis { background: var(--cream-d); }
+    .avis-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; }
+    .avis-score {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .avis-num { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--forest); line-height: 1; }
+    .avis-stars { font-size: 18px; color: var(--gold); letter-spacing: 3px; }
+    .avis-count { font-size: 13px; color: var(--mist); margin-top: 2px; }
+
+    .avis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .avis-card {
+      background: var(--white); border-radius: 18px; padding: 28px 26px;
+      transition: all .2s;
+    }
+    .avis-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,46,34,.1); }
+    .avis-card .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .avis-text { font-size: 14.5px; line-height: 1.75; color: var(--mist); font-style: italic; margin-bottom: 20px; }
+    .avis-author { display: flex; align-items: center; gap: 11px; }
+    .avis-avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--forest);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 13px; color: var(--cream); font-weight: 700; flex-shrink: 0;
+    }
+    .avis-name { font-size: 13px; font-weight: 600; color: var(--forest); }
+    .avis-meta { font-size: 12px; color: var(--mist); }
+
+    /* ── SERVICES ── */
+    .services { background: var(--cream); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+      background: rgba(26,46,34,.08); border-radius: 16px; overflow: hidden;
+      margin-top: 56px;
+    }
+    .svc-item {
+      background: var(--cream); padding: 30px 24px;
+      transition: background .2s, color .2s; cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+    .svc-item:hover { background: var(--white); border-color: var(--gold); }
+    .svc-emoji { font-size: 28px; margin-bottom: 14px; }
+    .svc-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+    .svc-desc { font-size: 13px; color: var(--mist); line-height: 1.6; }
+    .svc-validity { font-size: 11px; font-weight: 600; color: var(--gold); margin-top: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    .svc-badge {
+      display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px;
+      border-radius: 100px; margin-top: 8px;
+      background: rgba(155,65,32,.1); color: var(--rust);
+    }
+
+    /* ── ZONE ── */
+    .zone { background: var(--white); }
+    .zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .zone-intro { font-size: 16px; line-height: 1.8; color: var(--mist); margin-top: 16px; }
+
+    .communes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .commune-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px; border-radius: 10px;
+      border: 1px solid rgba(26,46,34,.08); font-size: 13.5px;
+      transition: border-color .18s, background .18s;
+    }
+    .commune-item:hover { border-color: var(--gold); background: rgba(200,151,58,.04); }
+    .commune-item.main {
+      background: var(--forest); border-color: var(--forest);
+      grid-column: span 2;
+    }
+    .commune-item.main .c-name { color: var(--cream); font-size: 15px; }
+    .commune-item.main .c-delay { color: var(--gold-l); }
+    .c-name { font-weight: 600; color: var(--forest); }
+    .c-delay { font-size: 12px; color: var(--mist); }
+
+    .zone-cta-block {
+      margin-top: 28px; padding: 28px; background: var(--forest);
+      border-radius: 16px; color: var(--cream);
+    }
+    .zone-cta-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .zone-cta-sub { font-size: 14px; color: rgba(247,243,236,.65); margin-bottom: 20px; line-height: 1.6; }
+    .zone-cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--cream-d); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 56px; }
+    .faq-item {
+      background: var(--white); border-radius: 14px; overflow: hidden;
+      border: 1.5px solid transparent; transition: border-color .2s;
+    }
+    .faq-item.open { border-color: rgba(200,151,58,.4); }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 20px 24px; font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 15px; color: var(--forest);
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--cream-d); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 18px; color: var(--mist);
+      transition: background .2s, transform .25s, color .2s;
+    }
+    .faq-item.open .faq-icon { background: var(--forest); color: var(--cream); transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; padding: 0 24px;
+      font-size: 14.5px; color: var(--mist); line-height: 1.75;
+      transition: max-height .32s ease, padding .32s ease;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 24px 22px; }
+
+    /* ── CTA FINALE ── */
+    .finale {
+      background: var(--forest); padding: 120px 48px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .finale-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, var(--forest-3), var(--forest));
+    }
+    .finale-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(80px, 14vw, 180px); font-weight: 900;
+      color: rgba(247,243,236,.04); line-height: 1; letter-spacing: -.04em;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      user-select: none; white-space: nowrap;
+    }
+    .finale > * { position: relative; z-index: 1; }
+    .finale h2 {
+      font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700; color: var(--cream); line-height: 1.1; margin-bottom: 16px;
+    }
+    .finale h2 em { font-style: italic; color: var(--gold-l); }
+    .finale p { font-size: 17px; color: rgba(247,243,236,.6); margin-bottom: 44px; }
+    .finale-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: var(--forest); font-weight: 700; }
+    .btn-gold:hover { background: var(--gold-l); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,151,58,.35); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--ink); padding: 64px 48px 28px;
+      color: rgba(255,255,255,.45);
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: white; margin-bottom: 12px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 14px; line-height: 1.7; }
+    .footer-contact { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+    .footer-contact a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .18s; }
+    .footer-contact a:hover { color: white; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13.5px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .18s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+    .footer-bottom a:hover { color: white; }
+
+    /* ── UTILS ── */
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 20px 0; }
+
+    @media (max-width: 1024px) {
+      .section { padding: 80px 28px; }
+      .hero-main { padding: 40px 28px 0; }
+      .hero-main { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { display: none; }
+      .sit-header { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .zone-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .hdr { padding: 16px 20px; }
+      .hdr.scrolled { padding: 12px 20px; }
+      .hdr-nav { display: none; }
+      .section { padding: 64px 20px; }
+      .hero-main { padding: 32px 20px 0; }
+      .sit-cards { grid-template-columns: 1fr; }
+      .avis-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .communes-grid { grid-template-columns: 1fr; }
+      .commune-item.main { grid-column: span 1; }
+      .finale { padding: 80px 20px; }
+      .footer { padding: 48px 20px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="hdr" id="hdr">
+  <a href="index-v2.html" class="hdr-logo">
+    <div class="hdr-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none">
+        <path d="M9 2L16 7V16H11V11H7V16H2V7L9 2Z" fill="white"/>
+        <rect x="7.5" y="7.5" width="3" height="3" rx=".5" fill="#C8973A"/>
+      </svg>
+    </div>
+    Immo<span>Conform</span>
+  </a>
+  <nav class="hdr-nav">
+    <a href="#situations">Mon projet</a>
+    <a href="#apropos">L'expert</a>
+    <a href="#diagnostics">Diagnostics</a>
+    <a href="#zone">Zone</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="hdr-cta">
+    <a href="tel:+33XXXXXXXXX" class="pill-btn pill-btn-ghost">☎ Appeler</a>
+    <a href="#devis" class="pill-btn pill-btn-solid">Devis gratuit</a>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-bg-text">DIAGNOSTIC</div>
+  <div class="hero-main">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Diagnostiqueur certifié · Lyon &amp; Métropole</div>
+      <h1>Diagnostics<br>immobiliers à<br>Lyon — <em>fiables,<br>rapides.</em></h1>
+      <p class="hero-desc">
+        Benoit Caillot intervient lui-même sur chaque mission. Un interlocuteur unique, joignable directement, qui remet votre dossier complet sous 24h.
+      </p>
+      <div class="hero-actions">
+        <a href="#devis" class="pill-btn pill-btn-solid" style="font-size:15px;padding:13px 28px">Devis gratuit en 2 min</a>
+        <a href="#situations" class="pill-btn pill-btn-ghost" style="font-size:15px;padding:12px 26px">Voir mon projet →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-dot"></span>4,9/5 · 203 avis Google</div>
+        <div class="trust-item"><span class="trust-dot"></span>Certifié COFRAC</div>
+        <div class="trust-item"><span class="trust-dot"></span>10 ans d'expérience</div>
+        <div class="trust-item"><span class="trust-dot"></span>Dossier remis sous 24h</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <div class="hero-photo-inner">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="18" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M4 48c0-12.1 9.9-22 22-22s22 9.9 22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Photo de Benoit Caillot<br>portrait ou photo terrain</span>
+        </div>
+      </div>
+      <div class="rating-card">
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-num">4,9</div>
+        <div class="rating-label">203 avis Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item"><strong>DPE</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Amiante</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Plomb CREP</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Gaz</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Électricité</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Termites</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Loi Carrez</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Audit énergétique</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Urgence 24/48h</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Résultats sous 24h</strong> <span class="marquee-sep">·</span></span>
+    <!-- duplicate for infinite loop -->
+    <span class="marquee-item"><strong>DPE</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Amiante</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Plomb CREP</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Gaz</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Électricité</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Termites</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Loi Carrez</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Audit énergétique</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Urgence 24/48h</strong> <span class="marquee-sep">·</span></span>
+    <span class="marquee-item"><strong>Résultats sous 24h</strong> <span class="marquee-sep">·</span></span>
+  </div>
+</div>
+
+<!-- ── SITUATIONS ── -->
+<section class="section situations" id="situations">
+  <div class="sit-header">
+    <div class="sit-intro">
+      <span class="section-label">Votre projet</span>
+      <h2>Quelle est<br>votre situation ?</h2>
+      <div class="divider"></div>
+      <p>Sélectionnez votre cas — nous vous indiquons précisément les diagnostics nécessaires et le tarif indicatif.</p>
+    </div>
+    <div class="big-num-feature">
+      <div class="big-num">1<span>200</span><sup style="font-size:.35em;color:var(--gold)">+</sup></div>
+      <div class="big-num-label">diagnostics réalisés dans la Métropole lyonnaise</div>
+    </div>
+  </div>
+
+  <div class="sit-cards">
+    <div class="sit-card" onclick="selectSit(this,'vente')">
+      <div class="sit-num">01</div>
+      <h3>Je vends mon bien</h3>
+      <p>Constituez votre DDT complet pour rassurer les acquéreurs et sécuriser la transaction notariale.</p>
+      <div class="sit-tags-wrap">
+        <span class="tag">DPE</span><span class="tag">Amiante</span><span class="tag">Plomb</span><span class="tag">Gaz · Élec</span><span class="tag">Carrez</span>
+      </div>
+      <a class="sit-cta-link" href="#devis">Pack à partir de 180€ →</a>
+    </div>
+    <div class="sit-card" onclick="selectSit(this,'location')">
+      <div class="sit-num">02</div>
+      <h3>Je mets en location</h3>
+      <p>Fournissez les diagnostics obligatoires à annexer au bail selon la date de construction et la commune.</p>
+      <div class="sit-tags-wrap">
+        <span class="tag">DPE</span><span class="tag">Plomb</span><span class="tag">Gaz · Élec</span><span class="tag">ERP</span><span class="tag">Boutin</span>
+      </div>
+      <a class="sit-cta-link" href="#devis">Pack à partir de 120€ →</a>
+    </div>
+    <div class="sit-card" onclick="selectSit(this,'renovation')">
+      <div class="sit-num">03</div>
+      <h3>Je rénove ou j'anticipe</h3>
+      <p>Audit énergétique obligatoire pour les logements F/G. Amiante avant travaux indispensable.</p>
+      <div class="sit-tags-wrap">
+        <span class="tag">Audit énergie</span><span class="tag">Amiante SS4</span><span class="tag">DPE réno</span>
+      </div>
+      <a class="sit-cta-link" href="#devis">Audit à partir de 350€ →</a>
+    </div>
+  </div>
+
+  <div class="recomm-box" id="recommBox">
+    <div class="recomm-icon">💡</div>
+    <div>
+      <div class="recomm-title" id="recommTitle">Recommandation</div>
+      <div class="recomm-text" id="recommText"></div>
+    </div>
+    <a href="#devis" class="pill-btn pill-btn-ghost" style="color:var(--gold-l);border-color:rgba(200,151,58,.4);flex-shrink:0;margin-left:auto">Demander ce pack →</a>
+  </div>
+</section>
+
+<!-- ── QUI SUIS-JE ── -->
+<section class="section about" id="apropos">
+  <div class="about-grid">
+    <div>
+      <span class="section-label">Votre expert</span>
+      <h2>Benoit Caillot —<br><em>terrain, pas bureau</em></h2>
+      <div class="divider" style="background:rgba(200,151,58,.5)"></div>
+      <p class="about-lead">
+        Après 10 ans passés sur le terrain lyonnais, j'interviens moi-même sur chaque mission. Pas de sous-traitance — vous avez mon numéro, vous m'appelez directement.
+      </p>
+      <div class="about-metrics">
+        <div class="metric">
+          <div class="metric-num">1 200<sub>+</sub></div>
+          <div class="metric-label">Diagnostics réalisés</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">4,9<sub>★</sub></div>
+          <div class="metric-label">Note Google</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">24<sub>h</sub></div>
+          <div class="metric-label">Délai remise dossier</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">10<sub>ans</sub></div>
+          <div class="metric-label">D'expérience terrain</div>
+        </div>
+      </div>
+      <div class="certifs-row">
+        <span class="certif-chip">COFRAC certifié</span>
+        <span class="certif-chip">RC Pro assurée</span>
+        <span class="certif-chip">SS4 amiante</span>
+        <span class="certif-chip">DPE v2 certifié</span>
+        <span class="certif-chip">Logiciel certifié</span>
+      </div>
+      <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="experience.html" class="pill-btn pill-btn-ghost" style="color:var(--cream);border-color:rgba(247,243,236,.2)">Voir le parcours complet</a>
+        <a href="tel:+33XXXXXXXXX" class="pill-btn" style="background:var(--gold);color:var(--forest);font-weight:700;border:none;padding:9px 20px;border-radius:100px">☎ Appeler Benoit</a>
+      </div>
+    </div>
+    <div class="about-photo">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="18" r="12" stroke="rgba(247,243,236,.3)" stroke-width="1.5"/><path d="M4 48c0-12.1 9.9-22 22-22s22 9.9 22 22" stroke="rgba(247,243,236,.3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-size:12px;font-family:monospace;color:rgba(247,243,236,.3)">Photo de Benoit Caillot</span>
+      <div class="about-quote">
+        Un diagnostic bien fait protège tout le monde — l'acheteur, le vendeur, et le diagnostiqueur.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIAGNOSTICS ── -->
+<section class="section services" id="diagnostics">
+  <span class="section-label">Nos prestations</span>
+  <h2>Tous vos diagnostics<br>en <em>une seule visite</em></h2>
+  <div class="services-grid">
+    <div class="svc-item">
+      <div class="svc-emoji">📊</div>
+      <div class="svc-name">DPE</div>
+      <div class="svc-desc">Diagnostic de Performance Énergétique. Classement A→G, consommations estimées.</div>
+      <div class="svc-validity">Validité 10 ans</div>
+      <div class="svc-badge">Obligatoire vente &amp; loc.</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">🔬</div>
+      <div class="svc-name">Amiante</div>
+      <div class="svc-desc">Repérage des matériaux amiantés. Avant 1997, SS4 pour travaux.</div>
+      <div class="svc-validity">Validité illimitée</div>
+      <div class="svc-badge">Avant 1997</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">🧱</div>
+      <div class="svc-name">Plomb (CREP)</div>
+      <div class="svc-desc">Constat de risque d'exposition au plomb dans les peintures.</div>
+      <div class="svc-validity">Vente 1 an · Location 6 ans</div>
+      <div class="svc-badge">Avant 1949</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">🔥</div>
+      <div class="svc-name">Gaz</div>
+      <div class="svc-desc">État des installations intérieures de gaz. Détection des anomalies.</div>
+      <div class="svc-validity">Vente 3 ans · Location 6 ans</div>
+      <div class="svc-badge">Installations +15 ans</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">⚡</div>
+      <div class="svc-name">Électricité</div>
+      <div class="svc-desc">Contrôle tableau, mise à la terre, conducteurs, prises.</div>
+      <div class="svc-validity">Vente 3 ans · Location 6 ans</div>
+      <div class="svc-badge">Installations +15 ans</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">🐛</div>
+      <div class="svc-name">Termites</div>
+      <div class="svc-desc">Inspection parasitaire selon arrêté préfectoral de la commune.</div>
+      <div class="svc-validity">Validité 6 mois</div>
+      <div class="svc-badge">Zones concernées</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">📐</div>
+      <div class="svc-name">Loi Carrez · Boutin</div>
+      <div class="svc-desc">Mesurage certifié surface privative. Obligatoire en copropriété.</div>
+      <div class="svc-validity">Validité illimitée</div>
+      <div class="svc-badge">Copropriété</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-emoji">🌿</div>
+      <div class="svc-name">Audit énergétique</div>
+      <div class="svc-desc">Scénarios de rénovation chiffrés. Obligatoire logements F/G à la vente.</div>
+      <div class="svc-validity">Validité 5 ans</div>
+      <div class="svc-badge">Logements F/G</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px">
+    <a href="diagnostics.html" class="pill-btn pill-btn-solid">Voir les fiches détaillées + tarifs →</a>
+  </div>
+</section>
+
+<!-- ── AVIS ── -->
+<section class="section avis" id="avis">
+  <div class="avis-header">
+    <div>
+      <span class="section-label">Avis clients</span>
+      <h2>Ce qu'ils disent<br>de <em>nos interventions</em></h2>
+    </div>
+    <div class="avis-score">
+      <div>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-num">4,9</div>
+        <div class="avis-count">203 avis Google vérifiés</div>
+      </div>
+      <a href="https://g.co/immoconform" target="_blank" rel="noopener" class="pill-btn pill-btn-ghost">Voir sur Google →</a>
+    </div>
+  </div>
+  <div class="avis-grid">
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Benoit est intervenu le lendemain de mon appel. Rapport reçu le soir même — parfait pour signer le compromis rapidement. Je recommande sans hésiter ! »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">MR</div>
+        <div><div class="avis-name">Marie-Dominique R.</div><div class="avis-meta">Vente appartement · Lyon 6e</div></div>
+      </div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Sérieux, ponctuel, pédagogue. Il m'a expliqué chaque diagnostic à la fin de la visite. Prix annoncé = prix facturé. Rien à redire. »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">TM</div>
+        <div><div class="avis-name">Thomas M.</div><div class="avis-meta">Location maison · Villeurbanne</div></div>
+      </div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Urgence 48h pour une vente à signer. Il s'est rendu disponible immédiatement. Très professionnel, dossier complet et conforme. »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">SP</div>
+        <div><div class="avis-name">Sophie P.</div><div class="avis-meta">Urgence · Caluire-et-Cuire</div></div>
+      </div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Excellent rapport qualité/prix. Le DPE est bien argumenté, les recommandations très claires. Je ferai appel à lui pour ma prochaine vente. »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">LB</div>
+        <div><div class="avis-name">Laurent B.</div><div class="avis-meta">DPE · Lyon 3e</div></div>
+      </div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Il a détecté un problème électrique que le précédent diagnostiqueur avait raté. Résultat : sécurité assurée pour mes locataires. »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">AC</div>
+        <div><div class="avis-name">Amélie C.</div><div class="avis-meta">Diagnostic électricité · Écully</div></div>
+      </div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <p class="avis-text">« Super expérience. Benoit est venu à l'heure, a répondu à toutes mes questions. Dossier impeccable. Je recommande à tous mes clients. »</p>
+      <div class="avis-author">
+        <div class="avis-avatar">JC</div>
+        <div><div class="avis-name">Julien C. — Agent immo</div><div class="avis-meta">Partenaire · Lyon</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ZONE ── -->
+<section class="section zone" id="zone">
+  <span class="section-label">Zone d'intervention</span>
+  <h2>Lyon et <em>toute la Métropole</em></h2>
+  <div class="zone-grid">
+    <div>
+      <p class="zone-intro">Intervention rapide sur l'ensemble des communes de la Métropole de Lyon. Déplacement inclus dans le tarif — aucune mauvaise surprise.</p>
+      <div class="divider"></div>
+      <div class="communes-grid" style="margin-top:24px">
+        <div class="commune-item main">
+          <span class="c-name">Lyon — 1er au 9e arrondissement</span>
+          <span class="c-delay">Zone principale · J+0</span>
+        </div>
+        <div class="commune-item"><span class="c-name">Villeurbanne</span><span class="c-delay">J+1</span></div>
+        <div class="commune-item"><span class="c-name">Vénissieux</span><span class="c-delay">J+1</span></div>
+        <div class="commune-item"><span class="c-name">Caluire-et-Cuire</span><span class="c-delay">J+1</span></div>
+        <div class="commune-item"><span class="c-name">Tassin</span><span class="c-delay">J+1</span></div>
+        <div class="commune-item"><span class="c-name">Écully</span><span class="c-delay">J+2</span></div>
+        <div class="commune-item"><span class="c-name">Bron · Saint-Priest</span><span class="c-delay">J+2</span></div>
+        <div class="commune-item"><span class="c-name">Autres communes 69</span><span class="c-delay">Sur demande</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="zone-cta-block" id="devis">
+        <div class="zone-cta-title">Votre devis gratuit</div>
+        <p class="zone-cta-sub">Renseignez votre situation et Benoit vous rappelle sous 2h (lun–sam 8h–19h) avec un devis ferme.</p>
+        <form onsubmit="submitDevis(event)" style="display:flex;flex-direction:column;gap:12px">
+          <select id="f-situation" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:11px 14px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;cursor:pointer">
+            <option value="">Votre projet…</option>
+            <option>Vente</option>
+            <option>Location</option>
+            <option>Travaux / Rénovation</option>
+            <option>Copropriété</option>
+          </select>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input id="f-nom" type="text" placeholder="Prénom &amp; Nom" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:11px 14px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none" />
+            <input id="f-tel" type="tel" placeholder="06 XX XX XX XX" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:11px 14px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none" />
+          </div>
+          <input id="f-commune" type="text" placeholder="Commune du bien" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:11px 14px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none" />
+          <button type="submit" class="pill-btn" id="devisBtn" style="background:var(--gold);color:var(--forest);font-weight:700;border:none;padding:13px 28px;border-radius:100px;font-size:15px;justify-content:center">Recevoir mon devis →</button>
+          <p style="font-size:12px;color:rgba(255,255,255,.35);text-align:center">Devis gratuit · Rappel sous 2h · Sans engagement</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section faq" id="faq">
+  <span class="section-label">Questions fréquentes</span>
+  <h2>Tout ce que vous<br>devez <em>savoir</em></h2>
+  <div class="faq-grid" style="max-width:1000px">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Quels diagnostics pour vendre à Lyon ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Pour une vente, le DDT doit contenir : DPE, diagnostic amiante (avant 1997), plomb (avant 1949), état des installations gaz et électricité (si plus de 15 ans), état des risques (ERP), et les termites selon arrêté préfectoral. Logements F/G : audit énergétique obligatoire depuis avril 2023.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Quel est le tarif d'un pack complet ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Un pack vente complet pour un appartement de 60 m² post-1997 est généralement facturé entre 180€ et 250€. Le tarif est toujours confirmé avant l'intervention par un devis écrit, sans surprise.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Combien de temps dure la visite ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Pour un appartement standard, comptez 1h à 2h. Pour une maison, prévoyez 2h à 3h. Tous les diagnostics sont réalisés en une seule visite — pas de rendez-vous multiples avec différents prestataires.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Intervenez-vous en urgence ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Oui. Pour un compromis à signer ou une mise en vente rapide, nous proposons une intervention sous 24 à 48h. Appelez directement le 06 XX XX XX XX pour vérifier la disponibilité immédiate.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Quelle est la validité des diagnostics ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">DPE 10 ans, amiante 3 ans si présence, plomb 1 an (vente) ou 6 ans (location), gaz et électricité 3 ans (vente) / 6 ans (location), ERP 6 mois, termites 6 mois. Vos diagnostics existants sont vérifiés avant de proposer de nouvelles mesures.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Le DPE est-il opposable depuis 2021 ? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Oui, depuis juillet 2021, le DPE est juridiquement opposable : un acheteur peut se retourner contre le vendeur si le DPE est erroné. Notre logiciel certifié DPE v2 et la méthode 3CL garantissent fiabilité et conformité.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINALE CTA ── -->
+<section class="finale">
+  <div class="finale-num">IMMOCONFORM</div>
+  <h2>Prêt à lancer<br><em>votre projet ?</em></h2>
+  <p>Devis gratuit · Intervention sous 24/48h · Dossier complet dans la journée</p>
+  <div class="finale-btns">
+    <a href="#devis" class="pill-btn btn-gold" style="font-size:16px;padding:14px 32px;border-radius:100px">Obtenir mon devis →</a>
+    <a href="tel:+33XXXXXXXXX" class="pill-btn pill-btn-ghost" style="font-size:16px;padding:13px 30px;color:var(--cream);border-color:rgba(247,243,236,.2)">☎ 06 XX XX XX XX</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Immo<span>Conform</span></div>
+      <p class="footer-tagline">Benoit Caillot — Diagnostiqueur immobilier certifié.<br>Lyon &amp; Métropole. Réactivité, expertise, sérieux.</p>
+      <div class="footer-contact">
+        <span>📍 Lyon, Rhône (69)</span>
+        <a href="tel:+33XXXXXXXXX">📞 06 XX XX XX XX</a>
+        <a href="mailto:contact@immoconform.fr">✉ contact@immoconform.fr</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Diagnostics</h4>
+      <div class="footer-links">
+        <a href="diagnostics.html#dpe">DPE Lyon</a>
+        <a href="diagnostics.html#amiante">Amiante</a>
+        <a href="diagnostics.html#plomb">Plomb CREP</a>
+        <a href="diagnostics.html#gaz">Gaz</a>
+        <a href="diagnostics.html#electricite">Électricité</a>
+        <a href="diagnostics.html#audit">Audit énergétique</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Projets</h4>
+      <div class="footer-links">
+        <a href="#situations">Vente</a>
+        <a href="#situations">Location</a>
+        <a href="#situations">Travaux</a>
+        <a href="#situations">Copropriété</a>
+        <a href="tel:+33XXXXXXXXX">Urgence 24/48h</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Communes</h4>
+      <div class="footer-links">
+        <a href="#">Diagnostic Lyon</a>
+        <a href="#">Diagnostic Villeurbanne</a>
+        <a href="#">Diagnostic Vénissieux</a>
+        <a href="#">Diagnostic Caluire</a>
+        <a href="#">Diagnostic Écully</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ImmoConform – Benoit Caillot · Tous droits réservés</span>
+    <span style="display:flex;gap:20px">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+      <a href="#">CGV</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('scrolled', window.scrollY > 60);
+}, {passive:true});
+
+// Situation cards
+const recomms = {
+  vente: {
+    title: 'Pour votre projet de vente',
+    text: 'Nous recommandons un pack DDT complet : DPE + amiante + plomb + gaz + électricité + ERP + Carrez. À partir de 180€ selon la surface et l\'ancienneté du bien.'
+  },
+  location: {
+    title: 'Pour votre mise en location',
+    text: 'Les essentiels pour le bail : DPE + CREP plomb (avant 1949) + gaz & électricité (si +15 ans) + ERP + surface loi Boutin. À partir de 120€.'
+  },
+  renovation: {
+    title: 'Pour votre projet de rénovation',
+    text: 'Audit énergétique obligatoire pour les logements F/G à la vente depuis 2023. Amiante avant travaux (SS4) indispensable pour tout chantier. À partir de 350€.'
+  }
+};
+
+function selectSit(card, type) {
+  document.querySelectorAll('.sit-card').forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+  const box = document.getElementById('recommBox');
+  const r = recomms[type];
+  if (r) {
+    document.getElementById('recommTitle').textContent = r.title;
+    document.getElementById('recommText').textContent = r.text;
+    box.classList.add('show');
+  }
+}
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Devis form
+function submitDevis(e) {
+  e.preventDefault();
+  const btn = document.getElementById('devisBtn');
+  btn.textContent = 'Envoi en cours…';
+  btn.style.opacity = '.7';
+  setTimeout(() => {
+    btn.textContent = '✓ Demande reçue — rappel sous 2h !';
+    btn.style.background = '#4AE8A0';
+    btn.style.opacity = '1';
+    setTimeout(() => {
+      btn.textContent = 'Recevoir mon devis →';
+      btn.style.background = '';
+    }, 4000);
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
